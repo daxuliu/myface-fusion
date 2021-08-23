@@ -67,7 +67,7 @@ def correct_color(img1, img2, landmark):
 
 
 def tran_src(src_img, src_points, dst_points, face_area=None):
-    jaw = core.JAW_END
+    jaw = core.FACE_END
 
     dst_list = dst_points \
                + core.matrix_rectangle(face_area[0], face_area[1], face_area[2], face_area[3]) \
@@ -195,13 +195,14 @@ def face_merge(dst_img, src_img, out_img,
 
     src_img = tran_src(src_img, src_points, dst_points, face_area)
 
+
     dst_img = merge_img(src_img, dst_img, dst_matrix, dst_points, k_size, mat_multiple)
 
     os.remove(trans_file)
-    os.remove(trans_file + '.txt')
+    # os.remove(trans_file + '.txt')
 
     os.remove(morph_file)
-    os.remove(morph_file + '.txt')
+    # os.remove(morph_file + '.txt')
 
     cv2.imwrite(out_img, dst_img)
 

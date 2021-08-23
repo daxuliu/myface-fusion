@@ -21,11 +21,11 @@ def getFaceAres(img=""):
 # [50, 30, 500, 485]
 # 依次代表人脸框左上角纵坐标（top）y1，左上角横坐标（left）x1，人脸框宽度（width），人脸框高度（height），通过设定改参数可以减少结果的大范围变形，把变形风险控制在人脸框区域
 if __name__ == '__main__':
-    faca_area=getFaceAres("images/model.jpg")
-    core.face_merge(src_img='images/model.jpg',
-                    dst_img='images/jobs.jpg',
-                    out_img='images/out5.jpg',
+    faca_area=getFaceAres("images/IMG_3572.JPG")
+    core.face_merge(src_img='images/IMG_3572.JPG',
+                    dst_img='images/IMG_3570.jpg',
+                    out_img='images/outcook.jpg',
                     face_area=faca_area,
-                    alpha=0.75,
-                    k_size=(15, 10),
-                    mat_multiple=0.95)
+                    alpha=0.85,
+                    k_size=(10, 5),
+                    mat_multiple=0.75)

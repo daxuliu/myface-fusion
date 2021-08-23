@@ -21,23 +21,26 @@ def getFaceAres(img=""):
     return area
 
 
-def PicToVideo(imgPath, videoPath,model=""):
+def PicToVideo(imgPath, videoPath,model="",l=1000):
     images = os.listdir(imgPath)
+    images.sort()
+    print(images)
     fps = 25  # 帧率
     fourcc = cv2.VideoWriter_fourcc(*"mp4v")
 
-    im = Image.open(imgPath + images[0])
+    im = Image.open(imgPath +"1.png")
     videoWriter = cv2.VideoWriter(videoPath, fourcc, fps, im.size)
-    for im_name in range(len(images)):
-        faca_area = getFaceAres(images[im_name])
-        core.face_merge(src_img=images[im_name],
+    for im_name in range(1,l):
+        faca_area = getFaceAres(imgPath +str(im_name)+".png")
+        print(images[im_name])
+        core.face_merge(src_img=imgPath +str(im_name)+".png",
                         dst_img=model,
-                        out_img="out"+images[im_name],
+                        out_img="out"+str(im_name)+".png",
                         face_area=faca_area,
-                        alpha=0.75,
+                        alpha=0.85,
                         k_size=(15, 10),
-                        mat_multiple=0.95)
-        frame = cv2.imread(imgPath + "out"+images[im_name])
+                        mat_multiple=0.85)
+        frame = cv2.imread(imgPath + "out"+str(im_name)+".png")
         videoWriter.write(frame)
         print(im_name)
     videoWriter.release()
@@ -58,15 +61,15 @@ def videoToImg(name=""):
         rval, frame = vc.read()
         print(c)
         if rval:
-            cv2.imwrite("img1/"+name.split(".")[0]+ str(c) + '.png', frame)
+            cv2.imwrite("img1/"+ str(c) + '.png', frame)
             cv2.waitKey(1)
         else:
             break
     vc.release()
 # videoToImg("IMG_3566.MOV")
 if __name__ == '__main__':
-    videoToImg("IMG_3567.MOV")
+    # videoToImg("IMG_3567.MOV")
     imgPath = "img1/"
     videoPath = "outVideo.mp4"
-    PicToVideo(imgPath, videoPath,"jobs.jpg")
+    PicToVideo(imgPath, videoPath,"model.jpg")
 
