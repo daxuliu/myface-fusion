@@ -29,7 +29,7 @@ def PicToVideo(imgPath, videoPath,model=""):
     im = Image.open(imgPath + images[0])
     videoWriter = cv2.VideoWriter(videoPath, fourcc, fps, im.size)
     for im_name in range(len(images)):
-        faca_area = getFaceAres(model)
+        faca_area = getFaceAres(images[im_name])
         core.face_merge(src_img=images[im_name],
                         dst_img=model,
                         out_img="out"+images[im_name],
