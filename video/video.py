@@ -43,9 +43,9 @@ def PicToVideo(imgPath, videoPath,model=""):
     videoWriter.release()
 
 
-imgPath = "img1/"
-videoPath = "video2.mp4"
-PicToVideo(imgPath, videoPath)
+# imgPath = "img1/"
+# videoPath = "video2.mp4"
+# PicToVideo(imgPath, videoPath)
 
 
 def videoToImg(name=""):
@@ -65,7 +65,7 @@ def videoToImg(name=""):
     vc.release()
 # videoToImg("IMG_3566.MOV")
 if __name__ == '__main__':
-    videoToImg("IMG_3566.MOV")
+    videoToImg("IMG_3567.MOV")
     imgPath = "img1/"
     videoPath = "outVideo.mp4"
     PicToVideo(imgPath, videoPath,"jobs.jpg")
