@@ -1,37 +1,12 @@
-# 颜如玉
+# faceswap
 
-颜如玉 —— python 人脸融合程序，可实现类似天天P图疯狂换脸、face++人脸融合效果
 
-# 项目描述
-
-最近随着各种技术的发展，图像方面的人脸处理技术越来越广泛。各大相机软件都有美颜、贴图、换发型、变脸等功能。天天P图与Face++也都推出人脸处理的 API，不过价格方面就有点不亲民了。于是本人将之前研究完成的人脸融合算法开源出来。
-
-## 效果对比
-国际惯例，我们看看颜如玉与天天P图、Face++合成效果的对比：
-
-![模特图 与 待融合图](/images/2282038-aac086bb0936f818.jpg)
-
-![结果对比](/images/2282038-2fa801fc113b8a53.jpg)
-
-* 注：Face++ 为调用其官网 API 生成的效果，天天P图则是直接使用该 APP 生成的效果
-
-### 使用
-
-- 安装 requirements.txt 所需库
+- 运行 video.py 的主函数
 ```
-pip install -r requirements.txt
-```
-- 运行 ModuleTest.py 的主函数
-```
-python ModuleTest.py
+python video.py
 ```
 
-生成的结果图片 output.jpg 储存在 images 文件中
 
-### 算法详解
-
-### 零、融合函数
-先看看程序入口函数
 ```
 core.face_merge(src_img='images/model.jpg',
                     dst_img='images/20171030175254.jpg',
