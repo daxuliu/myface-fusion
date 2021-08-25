@@ -136,8 +136,8 @@ def merge_img(src_img, dst_img, dst_matrix, dst_points, k_size=None, mat_multipl
         face_mask = cv2.warpAffine(face_mask, mat, (face_mask.shape[1], face_mask.shape[0]))
 
     if k_size:
-        face_mask = cv2.blur(face_mask, k_size, center)
-
+        face_mask = cv2.GaussianBlur(face_mask, k_size, 0)
+    #monochrome transfer
     return cv2.seamlessClone(np.uint8(dst_img), src_img, face_mask, center, cv2.NORMAL_CLONE)
 
 
